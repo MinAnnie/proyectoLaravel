@@ -22,3 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('servicios', 'App\Http\Controllers\ServicioController');
+Route::resource('clientes', 'App\Http\Controllers\ClienteController');

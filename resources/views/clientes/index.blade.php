@@ -1,35 +1,36 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Clientes')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Clientes</h1>
 @stop
 
 @section('content')
 <h2>Vista del INDEX</h2>
-<a href="servicios/create" class="btn btn-outline-info mb-3">Crear un servicio</a>
-<table id="servicios" class="table table-dark table-stripped mt-4" style="width:100%">
+<a href="http://127.0.0.1:8000/clientes/create" class="btn btn-outline-info mb-3">Crear un Cliente</a>
+<table id="clientes" class="table table-dark table-stripped mt-4" style="width:100%">
     <thead class="bg-primary text-white">
         <tr>
             <th>Id</th>
-            <th>Nombre del insumo</th>
-            <th>cantidad</th>
+            <th>Nombre del cliente</th>
+            <th>Documento</th>
+            <th>Temperatura</th>
             <th>acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach($clientes as $cliente)
         <tr>
-        <td>{{$clientes->id}}</td>
-        <td>{{$clientes->nombreCliente}}</td>
-        <td>{{$clientes->documento}}</td>
-        <td>{{$clientes->temperatura}}</td>
+        <td>{{$cliente->id}}</td>
+        <td>{{$cliente->nombreCliente}}</td>
+        <td>{{$cliente->documento}}</td>
+        <td>{{$cliente->temperatura}}</td>
         <td>
-            <form action="{{route ('clientes.destroy' , $clientes->id)}}" method="post"> 
+            <form action="{{route ('clientes.destroy' , $cliente->id)}}" method="post"> 
                 @csrf
                 @method('DELETE')
-                <a href="clientes/{{$clientes->id}}/edit" class="btn btn-outline-success">Editar</a>
+                <a href="clientes/{{$cliente->id}}/edit" class="btn btn-outline-success">Editar</a>
                 <button class="btn btn-outline-danger">Eliminar</button>
             </form>
         </td>
@@ -52,7 +53,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-    $('#servicios').DataTable();
+    $('#clientes').DataTable();
         } );
     </script>
 @stop

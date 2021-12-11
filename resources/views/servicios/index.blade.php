@@ -7,8 +7,7 @@
 @stop
 
 @section('content')
-<h2>Vista del INDEX</h2>
-<a href="servicios/create" class="btn btn-outline-info mb-3">Crear un servicio</a>
+<a href="http://127.0.0.1:8000/servicios/create" class="btn btn-outline-info mb-3">Crear un servicio</a>
 <table id="servicios" class="table table-dark table-stripped mt-4" style="width:100%">
     <thead class="bg-primary text-white">
         <tr>

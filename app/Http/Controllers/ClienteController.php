@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
@@ -16,7 +17,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = cliente::all();
+        $clientes = Cliente::all();
         return view('clientes.index')->with('clientes', $clientes);
     }
 
@@ -27,7 +28,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('clientes.create');
     }
 
     /**
@@ -38,7 +39,14 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clientes = new Cliente();
+        $clientes->nombreCliente = $request->get('nombreCliente');
+        $clientes->documento = $request->get('Documento');
+        $clientes->temperatura = $request->get('temperatura');
+
+        $clientes->save();
+
+        return redirect('/clientes');
     }
 
     /**
@@ -60,7 +68,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clientes = Cliente::find($id);
+        return view('Clientes.edit')->with('clientes', $clientes);
     }
 
     /**
@@ -72,7 +81,15 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $clientes = Cliente::find($id);
+
+        $clientes->nombreCliente = $request->get('nombreCliente');
+        $clientes->documento = $request->get('documento');
+        $clientes->temperatura = $request->get('temperatura');
+
+        $clientes->save();
+
+        return redirect('/clientes');
     }
 
     /**
@@ -83,6 +100,9 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clientes = Cliente::find($id);
+        $clientes->delete();
+
+        return redirect('/clientes');
     }
 }
