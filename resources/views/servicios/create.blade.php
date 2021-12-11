@@ -1,7 +1,12 @@
-@extends('layouts.template');
+@extends('adminlte::page')
+
+@section('title', 'Agregar Servicios')
+
+@section('content_header')
+    <h1>Agregar servicios</h1>
+@stop
 
 @section('content')
-<h1>Crear un servicio</h1>
 <form action="/servicios" method="post">
     @csrf
     <div class="mb-3">
@@ -17,4 +22,12 @@
     <a name="" id="" class="btn btn-outline-danger" tabindex="5" href="/servicios" role="button">Cancelar</a>
     <button type="submit" class="btn btn-outline-success" tabindex="4">Guardar</button>
 </form>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

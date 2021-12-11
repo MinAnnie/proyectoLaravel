@@ -1,15 +1,38 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('adminlte::page')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">CRUD servicios</h5>
+        <p class="card-text">Aquí podrá ver los servicios disponibles, y podrá editar, eliminar o crear nuevos servicios</p>
+        <a href="servicios/" class="btn btn-info">Ir a servicios</a>
+      </div>
     </div>
-</x-app-layout>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">CRUD Clientes</h5>
+        <p class="card-text">Aquí podrá ver los clientes que han ingresado a las instalaciones, su nombre, documento y temperatura registrada.</p>
+        <a href="clientes/" class="btn btn-info">ir a clientes</a>
+      </div>
+    </div>
+  </div>
+</div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

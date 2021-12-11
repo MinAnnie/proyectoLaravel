@@ -1,7 +1,12 @@
-@extends('layouts.template');
+@extends('adminlte::page')
+
+@section('title', 'Editar Servicios')
+
+@section('content_header')
+    <h1>Editar los Servicios</h1>
+@stop
 
 @section('content')
-<h1>Editar un servicio</h1>
 <form action="/servicios/{{$servicio->id}}" method="post">
     @csrf
     @method('PUT')
@@ -18,4 +23,12 @@
     <a name="" id="" class="btn btn-outline-danger" tabindex="5" href="/servicios" role="button">Cancelar</a>
     <button type="submit" class="btn btn-outline-success" tabindex="4">Guardar</button>
 </form>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
