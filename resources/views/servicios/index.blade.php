@@ -1,10 +1,13 @@
 @extends('layouts.template');
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+@endsection
 
 @section('content')
 <h2>Vista del INDEX</h2>
-<a href="servicios/create" class="btn btn-outline-info">Crear un servicio</a>
-<table class="table table-dark table-stripped mt-4">
-    <thead>
+<a href="servicios/create" class="btn btn-outline-info mb-3">Crear un servicio</a>
+<table id="servicios" class="table table-dark table-stripped mt-4" style="width:100%">
+    <thead class="bg-primary text-white">
         <tr>
             <th>Id</th>
             <th>Nombre del servicio</th>
@@ -31,4 +34,14 @@
     
     </tbody>
 </table>
+@endsection
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    $('#servicios').DataTable();
+        } );
+    </script>
 @endsection
