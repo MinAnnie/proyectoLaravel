@@ -23,3 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('servicios', 'App\Http\Controllers\ServicioController');
 Route::resource('clientes', 'App\Http\Controllers\ClienteController');
+Route::resource('insumos', 'App\Http\Controllers\InsumoController');
+Route::resource('usuarios', 'App\Http\Controllers\UsuarioController');

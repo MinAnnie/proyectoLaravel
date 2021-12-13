@@ -27,6 +27,28 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">CRUD Insumos</h5>
+        <p class="card-text">Aquí podrá ver los Insumos disponibles, podrá crear, editar y eliminar según necesite.</p>
+        <a href="insumos/" class="btn btn-info">ir a insumos</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">CRUD Usuarios</h5>
+          <p class="card-text">Aquí podrá ver los usuario que han sido registrados, podrá registrar, editar y eliminar según necesite.</p>
+          <a href="usuarios/" class="btn btn-info">ir a usuarios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 @stop
 
 @section('css')

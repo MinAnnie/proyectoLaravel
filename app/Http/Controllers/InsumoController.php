@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Insumo;
 
 class InsumoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,8 @@ class InsumoController extends Controller
      */
     public function index()
     {
-        //
+        $insumos = Insumo::all();
+        return view('insumos.index')->with('insumos', $insumos);
     }
 
     /**
@@ -23,7 +28,7 @@ class InsumoController extends Controller
      */
     public function create()
     {
-        //
+        return view('insumos.create');
     }
 
     /**
@@ -34,7 +39,9 @@ class InsumoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insumos = new insumo();
+        $insumos->nombreinsumo = $request->get('nombreInsumo');
+        $insumos->cantidad = $request->get('cantidad');
     }
 
     /**
@@ -56,7 +63,8 @@ class InsumoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $insumos = Insumo::find($id);
+        return view('insumos.edit')->with('insumo', $insumos);
     }
 
     /**
@@ -68,7 +76,14 @@ class InsumoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $insumos = Insumo::find($id);
+
+        $insumos->nombreInsumo = $request->get('nombreInsumo');
+        $insumos->cantidad = $request->get('cantidad');
+
+        $insumos->save();
+
+        return redirect('/insumos');
     }
 
     /**
@@ -79,6 +94,9 @@ class InsumoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $insumos = Insumo::find($id);
+        $insumos->delete();
+
+        return redirect('/insumos');
     }
 }
