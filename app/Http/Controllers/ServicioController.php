@@ -7,6 +7,9 @@ use App\Models\servicio;
 
 class ServicioController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +29,9 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        //
+
+        //nos muestra el formulario para crear los servicios
+        return view('servicios.create');
     }
 
     /**
@@ -38,6 +43,13 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         //
+        $servicios = new Servicio();
+        $servicios->nombreServicio = $request->get('nombreServicio');
+        $servicios->tipoServicio = $request->get('tipoServicio');
+
+        $servicios->save();
+
+        return redirect('/servicios');
     }
 
     /**
@@ -59,7 +71,8 @@ class ServicioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servicios = Servicio::find($id);
+        return view('Servicios.edit')->with('servicio', $servicios);
     }
 
     /**
@@ -71,7 +84,14 @@ class ServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $servicio = Servicio::find($id);
+
+        $servicio->nombreServicio = $request->get('nombreServicio');
+        $servicio->tipoServicio = $request->get('tipoServicio');
+
+        $servicio->save();
+
+        return redirect('/servicios');
     }
 
     /**
@@ -82,6 +102,9 @@ class ServicioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servicio = Servicio::find($id);
+        $servicio->delete();
+
+        return redirect('/servicios');
     }
 }

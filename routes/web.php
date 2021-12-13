@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -22,3 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('servicios', 'App\Http\Controllers\ServicioController');
+Route::resource('clientes', 'App\Http\Controllers\ClienteController');
+Route::resource('insumos', 'App\Http\Controllers\InsumoController');
+Route::resource('usuarios', 'App\Http\Controllers\UsuarioController');

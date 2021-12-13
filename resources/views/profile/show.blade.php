@@ -1,7 +1,16 @@
+@extends('adminlte::page')
+
+@section('title', 'Configuración de la cuenta')
+
+@section('content_header')
+    <h1>Configuración de la cuenta</h1>
+@stop
+
+@section('content')
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
+            {{ __('Perfil') }}
         </h2>
     </x-slot>
 
@@ -43,3 +52,12 @@
         </div>
     </div>
 </x-app-layout>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
